@@ -6,6 +6,9 @@ import android.app.DialogFragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -20,6 +23,7 @@ import android.widget.SearchView;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class SearchableListDialog extends DialogFragment implements
         SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -100,10 +104,13 @@ public class SearchableListDialog extends DialogFragment implements
         alertDialog.setTitle(strTitle);*/
 
         final AlertDialog dialog = alertDialog.create();
-        dialog.getWindow()
+        Objects.requireNonNull(dialog.getWindow())
                 .setSoftInputMode(WindowManager.LayoutParams
-                .SOFT_INPUT_STATE_HIDDEN);
-        dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
+                        .SOFT_INPUT_STATE_HIDDEN);
+        dialog.getWindow().setLayout(320, 480);
+        ColorDrawable back = new ColorDrawable(Color.TRANSPARENT);
+        InsetDrawable inset = new InsetDrawable(back, 48);
+        dialog.getWindow().setBackgroundDrawable(inset);
         return dialog;
     }
 
