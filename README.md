@@ -6,5 +6,5 @@ I added small modifications to it, adding rounded corners to the searchable dial
 # Gradle
     dependencies {
         ...
-        implementation 'com.github.AhmedKhaledGamil:Android-SearchableSpinner:v1.0.0'
+        implementation 'com.github.AhmedKhaledGamil:Android-SearchableSpinner:v1.1'
     }
